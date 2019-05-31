@@ -26,13 +26,26 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+    we used express for Routing, and Middleware.
+    Middleware -> receives the req and res -> performs an action -> moves to the next middleware, or returns a respons
+    Routing -> Routing is a way to control the api and execute functions based on the url, this helps break up the application,and keeps the app clean 
+
+
 - [ ] Describe Middleware?
+
+    middlemare are functions that add to an application, they add features to express and include most of the code involved in an express app. examples could be (req, res), helmet, or a custom middleware the dev writes.
 
 - [ ] Describe a Resource?
 
+    a resourse is somthing our api looks for and cares about, they are the nouns in the Application Domain
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+    a json message ({ message: 'it worked'})
+
 - [ ] How can we partition our application into sub-applications?
+
+        Routing can break the app up by executing functions based on the url or http method 
 
 ## Project Setup
 
