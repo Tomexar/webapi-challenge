@@ -1,3 +1,6 @@
+// import { Server } from "tls";
+const server = require('./api/server.js')
+
 /*
 play this: https://www.youtube.com/watch?v=d-diB65scQU
 
@@ -12,3 +15,9 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
+const port = process.env.PORT || 3000;
+
+server.listen(port, () =>{
+    console.log(`\n*** server running on ${port}***\n`)
+})
