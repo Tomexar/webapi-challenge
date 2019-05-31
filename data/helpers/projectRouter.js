@@ -4,6 +4,19 @@ const Projects = require('./projectModel');
 
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+    try {
+        const projects = await Projects.get(req.params.name);
+        if (projects) {
+            res.status(200).json(projects);
+        } else {
+            res.status(404).json({ message: 'project not found' })
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'error getting projects' })
+    }
+})
 router.get('/:id', async (req, res) => {
     try {
         const projects = await Projects.get(req.params.id);
@@ -52,6 +65,16 @@ router.put('/:id', async (req, res)=>{
     }catch(error){
         console.log(error);
         res.status(500).json({ message: 'error updating'})
+    }
+})
+
+router.get('/:id/actions', async (req, res)=>{
+    try{
+        const projectactions = await Projects.getProjectActions(req.params.id);
+        res.status(200).json(projectactions);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({ message: 'error getting actions' })
     }
 })
 
